@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package usecase
 
 import (
@@ -15,35 +14,13 @@ func NewAuthEntity(a models.AuthRepository) models.AuthEntity {
 	}
 }
 
-func (be *AuthEntity) Cek(username string) (auth models.Auth, err error) {
-	auth , err = be.authRepo.Cek(username,password)
+func (be *AuthEntity) Cek(username, password string) (models.Auth, error) {
+	auth, err := be.authRepo.Cek(username, password)
 	if err != nil {
-		if auth.Username == 
+		return models.Auth{}, err
 	}
-return
-}
-=======
-package usecase
-
-import (
-	"kasir-clean/domain/auth/models"
-)
-
-type AuthEntity struct {
-	authRepo models.AuthRepository
-}
-
-func NewAuthEntity(a models.AuthRepository) models.AuthEntity {
-	return &AuthEntity{
-		authRepo: a,
+	if username != auth.Username {
+		return models.Auth{}, err
 	}
+	return auth, err
 }
-
-func (be *AuthEntity) Cek(username string) (auth models.Auth, err error) {
-	auth , err = be.authRepo.Cek(username,password)
-	if err != nil {
-		if auth.Username == 
-	}
-return
-}
->>>>>>> master
