@@ -17,6 +17,11 @@ import (
 	repositoryB "kasir-clean/domain/barang/repository"
 	usecaseB "kasir-clean/domain/barang/usecase"
 
+	//auth
+	controllerA "kasir-clean/domain/auth/controller"
+	repositoryA "kasir-clean/domain/auth/repository"
+	usecaseA "kasir-clean/domain/auth/usecase"
+
 	"github.com/labstack/echo"
 )
 
@@ -63,6 +68,9 @@ func main() {
 	//barang
 	repoK := repositoryB.NewBarangRepository(db)
 	entityK := usecaseB.NewBarangEntity(repoK)
+	//auth
+	repoo := repositoryA.NewAuthRepository(db)
+	entityZ := usecaseA.NewAuthEntity(repoo)
 
 	e.Renderer = NewRenderer("view/index.html", true)
 
@@ -70,6 +78,7 @@ func main() {
 	e.GET("/", LoginHandler)
 	controller.KaryawanControllerFunc(api, entity)
 	controllerB.BarangControllerFunc(api, entityK)
+	controllerA.AuthControllerFunc(api, entityZ)
 
 	//repoK := repo
 
