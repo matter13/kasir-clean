@@ -73,14 +73,14 @@ func main() {
 	entityZ := usecaseA.NewAuthEntity(repoo)
 
 	e.Renderer = NewRenderer("view/index.html", true)
-	e.Renderer = NewRenderer("view/barang/t_barang.html", true)
+	//e.Renderer = NewRenderer("view/barang/t_barang.html", true)
 
 	api := e.Group("/api")
 	e.GET("/", LoginHandler)
 	controller.KaryawanControllerFunc(api, entity)
 	controllerB.BarangControllerFunc(api, entityK)
 	controllerA.AuthControllerFunc(api, entityZ)
-	e.GET("/barang", t_barang)
+	//e.GET("/barang", t_barang)
 	//repoK := repo
 
 	e.Start(":7000")
