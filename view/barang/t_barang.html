@@ -15,7 +15,7 @@
         }
         .tengah {
             width: 350px;
-            height : 190px;
+            height : 300px;
             padding-top: 40px;
             background-color: chartreuse;
             margin-left: auto;
@@ -44,21 +44,33 @@
     </style>
 </head>
 <body>
-    <form method="post" action="api/login">
+    <form method="post" action="api/barang">
     <div class="tengah">
     <table border="0" align="center" width="85%">
         <tr>
             <th colspan="0" style="text-align: center;height: 30px;">{{.msg}}</th>
         </tr>
         <tr>
-           <td><input type="text" name="user" placeholder="Username" class="tx"></td>
+           <td><input type="text" name="id_barang" placeholder="kode Barang" class="tx"></td>
         </tr>
         <tr>
-      <td><input type="password" name="pw" placeholder="Password" class="tx"></td>
+      <td><input type="text" name="nama_barang" placeholder="Nama Barang" class="tx"></td>
         </tr>
+        <tr>
+            <td><input type="text" name="deskripsi" placeholder="Deskripsi Barang" class="tx"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="stok" placeholder="Stok" class="tx"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="harga" placeholder="harga" class="tx"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="tgl_masuk" placeholder="tgl_masuk" value="" class="tx"></td>
+              </tr>
         <tr style="height: 50px;">
         <td colspan="0" style="text-align: center;">
-            <input type="submit" name="login" id="login" value="Login" class="btn">
+            <input type="submit" name="login" id="login" value="Tambah barang" class="btn">
         </td>
         </tr>
     </table>

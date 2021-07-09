@@ -20,8 +20,8 @@ func AuthControllerFunc(c *echo.Group, us models.AuthEntity) {
 }
 func (a *AuthController) Login(c echo.Context) error {
 
-	user := c.FormValue("username")
-	pass := c.FormValue("password")
+	user := c.FormValue("user")
+	pass := c.FormValue("pw")
 
 	auth, err := a.AuthController.Cek(user, pass)
 	if err != nil {
