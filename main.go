@@ -4,7 +4,6 @@ import (
 	//koneksi
 	"io"
 	"kasir-clean/config"
-	"net/http"
 	"text/template"
 
 	//karyawan
@@ -72,11 +71,8 @@ func main() {
 	repoo := repositoryA.NewAuthRepository(db)
 	entityZ := usecaseA.NewAuthEntity(repoo)
 
-	e.Renderer = NewRenderer("view/index.html", true)
-	//e.Renderer = NewRenderer("view/barang/t_barang.html", true)
-
 	api := e.Group("/api")
-	e.GET("/", LoginHandler)
+
 	controller.KaryawanControllerFunc(api, entity)
 	controllerB.BarangControllerFunc(api, entityK)
 	controllerA.AuthControllerFunc(api, entityZ)
@@ -85,12 +81,4 @@ func main() {
 
 	e.Start(":7000")
 
-}
-func LoginHandler(c echo.Context) error {
-	data := map[string]string{"msg": "Login Page"}
-	return c.Render(http.StatusOK, "index.html", data)
-}
-func t_barang(c echo.Context) error {
-	data := map[string]string{"msg": "Tambah Barang"}
-	return c.Render(http.StatusOK, "t_barang.html", data)
 }
