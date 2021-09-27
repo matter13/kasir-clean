@@ -15,8 +15,8 @@ func NewBarangEntity(a models.BarangRepository) models.BarangEntity {
 	}
 }
 
-func (be *BarangEntity) Get(c context.Context) (res []models.Barang, err error) {
-	res, err = be.barangRepo.Get(c)
+func (be *BarangEntity) Get(ctx context.Context) (res []models.Barang, err error) {
+	res, err = be.barangRepo.Get(ctx)
 	if err != nil {
 		return nil, err
 	}

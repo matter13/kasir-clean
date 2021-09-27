@@ -28,7 +28,7 @@ type BarangEntity interface {
 	Update(barang Barang, id_barang string) (Barang, error)
 }
 
-// KelasRepository ...
+// BarangRepository ...
 type BarangRepository interface {
 	Get(ctx context.Context) (res []Barang, err error)
 	Create(barang Barang) (Barang, error)
